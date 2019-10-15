@@ -1,0 +1,17 @@
+#HealthCheck for the cluster
+GET /_cat/health?v&pretty
+
+#Get List of Nodes
+GET /_cat/nodes?v&pretty
+
+#Get indices
+GET /_cat/indices?v
+
+#Add an indices
+PUT /customer?pretty
+
+#Add a document in the incdices
+curl -X PUT "localhost:9200/customer/external/1?pretty&pretty" -H 'Content-Type: application/json' -d'{  "name": "John Doe"}'
+
+#Post without an ID
+curl -X POST "localhost:9200/customer/external?pretty&pretty" -H 'Content-Type: application/json' -d'{  "name": "Jane Doe"}'
